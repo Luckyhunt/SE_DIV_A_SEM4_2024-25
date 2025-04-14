@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Failed</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff4b4b, #2ec4e6b5);
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            padding: 30px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: yellow;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #ffdd57;
+            color: #000;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        .btn:hover {
+            background: #ffaa00;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ session['level'] }} असफल </h2>
+        <h1>आपका स्कोर: {{ score }} / {{ total }}</h1>
+        <p>चिंता न करें! आप फिर से प्रयास कर सकते हैं।</p>
+        <a href="{{ url_for('retry') }}" class="btn">फिर से प्रयास करें 🔄</a>
+        <a href="{{ url_for('home') }}" class="btn">मुखपृष्ठ पर वापस जाएं 🏠</a>
+    </div>
+    
+</body>
+</html>

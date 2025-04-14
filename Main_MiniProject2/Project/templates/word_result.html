@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Result</title>
+</head>
+<body>
+    <h1>स्तर {{ level }} पूर्ण हुआ!</h1>
+
+    {% if session.get("correct_answers", 0) >= 4 %}
+        <p>✅ बधाई हो! आपने यह स्तर पार कर लिया।</p>
+        <form action="{{ url_for('next_level') }}" method="POST">
+            <button type="submit">➡️ अगला स्तर</button>
+        </form>
+    {% else %}
+        <p>❌ अरे! आप इस स्तर में सफल नहीं हो सके।</p>
+        <form action="{{ url_for('retry_level') }}" method="POST">
+            <button type="submit">🔄 पुनः प्रयास करें</button>
+        </form>
+    {% endif %}
+
+    <form action="{{ url_for('home') }}" method="POST">
+        <button type="submit">🏠 मुखपृष्ठ पर वापस जाएं</button>
+    </form>
+</body>
+</html>
